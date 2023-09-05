@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission Example</title>
+    <style>
+        /* Style for the form container */
+        .form-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Style for form inputs and submit button */
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Style for form submit button on hover */
+        .form-submit:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Contact Us</h2>
+        <form action="/createBlog" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" class="form-input" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" class="form-input" rows="4" required></textarea>
+
+            <label for="subtitle">Subtitle:</label>
+            <input type="text" id="subtitle" name="subtitle" class="form-input" required>
+
+            <input type="submit" value="Submit" class="form-submit">
+        </form>
+    </div>
+</body>
+</html>

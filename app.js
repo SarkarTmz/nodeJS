@@ -3,16 +3,23 @@ const app = express()  //storing it in app,
 
 app.set("view engine", "ejs" )
 
+app.use(express.json())
+app.use(express.urlencoded({extend:true}))
+
+
+
+
 app.get('/',(req,res)=>{
-    res.render("home.ejs")
+    res.render("blog.ejs")
 })
 
-app.get('/about',(req,res)=>{
-    res.render("about")
+app.get('/createBlog',(req,res)=>{
+    res.render("createBlog.ejs")
 })
 
-app.get('/contact',(req,res)=>{
-    res.send("<div><h1>This is contact page make though jsx</h1></div>")
+app.post('/createBlog',(req,res)=>{
+    console.log(req.body)
+    res.send("form submited successfully")
 })
 
 
