@@ -12,11 +12,18 @@ app.use(express.json())
 app.use(express.urlencoded({extend:true}))
 
 
+// All blogs
 
+app.get("/",async (req,res)=>{
+    //blogs vanney table bata vayejati sabai data dey vaneko 
+    const allBlogs = await blogs.findAll() 
+   
 
-app.get('/',(req,res)=>{
-    res.render("blog.ejs")
+    // blogs vanney key/name ma allBlogs/data pass gareko ejs file lai
+    res.render('blog',{blogs:allBlogs})
 })
+
+// create blogs
 
 app.get('/createBlog',(req,res)=>{
     res.render("createBlog.ejs")
@@ -38,7 +45,7 @@ app.post('/createBlog', async(req,res)=>{
     })
 
     console.log(req.body)
-    res.send("form submited successfully")
+    res.redirect("/")
 })
 
 
