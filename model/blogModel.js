@@ -1,5 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const blog = sequelize.define("blog", {
+    
       title: {
         type: DataTypes.STRING,
         // allowNull: false,

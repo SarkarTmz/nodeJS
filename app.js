@@ -11,7 +11,6 @@ app.set("view engine", "ejs" )
 app.use(express.json())
 app.use(express.urlencoded({extend:true}))
 
-
 // All blogs
 
 app.get("/",async (req,res)=>{
@@ -31,6 +30,7 @@ app.get('/createBlog',(req,res)=>{
 
 app.post('/createBlog', async(req,res)=>{
 
+  
     const title = req.body.title
     const description = req.body.description
     const subtitle = req.body.subtitle
@@ -39,6 +39,7 @@ app.post('/createBlog', async(req,res)=>{
 
     // Data base ma halda
     await blogs.create({
+       
         title : title,
         subtitle:subtitle,
         description : description
@@ -49,6 +50,29 @@ app.post('/createBlog', async(req,res)=>{
 })
 
 
+// single page
+app.get("/single/:id",async(req,res)=>{
+
+    const id = req.params.id
+    const blog = await blogs.findAll({
+        where : {
+            id : id
+        }
+    })
+
+    res.render("singleBlog.ejs", {blog:blog})
+})
+
+// delete page 
+app.get("/delete/:id",async(req,res)=>{
+    const id = req.params.id
+    const blog = await blogs.destroy({
+        where : {
+            id : id
+        }
+    })
+    res.redirect("/")
+})
 
 app.listen(3000,function(){
     console.log("Node is goining on")
