@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       subtitle: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
       },
     });
     return blog;

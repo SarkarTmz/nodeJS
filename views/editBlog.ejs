@@ -44,21 +44,22 @@
 </head>
 <body>
     <div class="form-container">
-        <h2>Create Blogs</h2>
-        <form action="/createBlog" method="POST">
+        <h2>Edit Blogs</h2>
+        <form action="/editBlog/<%- blog[0].id %>" method="POST">
 
             <!-- <input type="text" id="image" placeholder='image' name="image" required  /> -->
 
             <label for="title">Name:</label>
-            <input type="text" id="title" name="title" class="form-input" required>
+            <input type="text" value="<%- blog[0].title %>" id="title" name="title" class="form-input" required>
 
             <label for="description">Description:</label>
-            <textarea id="description" name="description" class="form-input" rows="4" required></textarea>
+            <textarea id="description"  name="description" class="form-input" rows="4" required><%- blog[0].description %></textarea>
 
             <label for="subtitle">Subtitle:</label>
-            <input type="text" id="subtitle" name="subtitle" class="form-input" required>
+            <input type="text" id="subtitle" value="<%- blog[0].subtitle %>" name="subtitle" class="form-input" required>
 
             <input type="submit" value="Submit" class="form-submit">
+            <button > <a href="/single/<%-blog[0].id %>">Cancel</a></button>
         </form>
     </div>
 </body>
