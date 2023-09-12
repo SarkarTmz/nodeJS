@@ -6,13 +6,18 @@ const app = express()  //storing it in app,
 // database connection
 require("./model/index")
 
+//telling the node js to set view engine to ejs
 app.set("view engine", "ejs" )
+
+
+// node js lai yo file ko code accesss garna deu vaneko
+app.use(express.static("public/"))
+
 
 app.use(express.json())
 app.use(express.urlencoded({extend:true}))
 
 // All blogs
-
 app.get("/",async (req,res)=>{
     //blogs vanney table bata vayejati sabai data dey vaneko 
     const allBlogs = await blogs.findAll() 
