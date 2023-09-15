@@ -6,10 +6,10 @@ module.exports = (sequelize, DataTypes) => {
         // allowNull: false,
       },
       description: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
       },
       subtitle: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
       },
     });
     return blog;
